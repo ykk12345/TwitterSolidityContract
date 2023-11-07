@@ -24,8 +24,8 @@ contract Twitter
     Tweets[msg.sender].push(newTweet);// saving the tweets in the mapping
   }
 
-  function getTweet(address _owner,uint _i) public view returns(Tweet memory){
-    return Tweets[_owner][_i];
+  function getTweet(uint _i) public view returns(Tweet memory){
+    return Tweets[msg.sender][_i];
   }
   
   function getallTweets(address _owner) public view returns(Tweet[] memory)
