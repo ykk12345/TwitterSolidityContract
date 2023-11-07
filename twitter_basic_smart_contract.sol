@@ -12,8 +12,9 @@ contract Twitter
     }
 
   mapping(address => Tweet[]) public Tweets; // address is the mapping key
-
+   uint16 constant MAX_TWEET_LENGTH = 280;
   function createTweet(string memory _tweet) public { // storing the _tweet in temporary memory
+         require(bytes(_tweet).length<=MAX_TWEET_LENGTH,"Tweet length is too long!"); // fixing the length of the tweet to 280 character
     Tweet memory newTweet = Tweet({
       author : msg.sender,
       content : _tweet,
